@@ -7,6 +7,7 @@
 Das Projekt **Smart Home Dashboard** befasst sich mit der Konzeption einer modernen, webbasierten Softwarelösung zur Überwachung, Analyse und Visualisierung des Energieverbrauchs in privaten Haushalten.
 
 <img width="700" alt="Mindmap" src="https://github.com/user-attachments/assets/f363a06b-4bb4-4682-9efd-8708568ea114" />
+<img width="1557" height="1339" alt="MindMap" src="https://github.com/user-attachments/assets/b2e5b657-df57-442a-815b-8cdfd93d6cef" />
 
 Bild: Mindmap
 
@@ -22,7 +23,6 @@ Ziel der Anwendung ist es, Nutzer:innen eine transparente und verständliche Üb
 #### 1.1.2 Produktbeschreibung
 Das Ergebnis ist ein vollständig ausgearbeitetes Konzept inklusive Systemarchitektur, Datenflüssen und Anforderungen. Das Dashboard dient als zentrale Informationsgrundlage für Nutzer zur Optimierung ihres Energieverbrauchs.
 
----
 ### 1.2 Systemarchitektur
 <img width="700" alt="Screenshot 2026-01-22 132318" src="https://github.com/user-attachments/assets/c1597861-2303-4ec2-b067-176f40282235" />
 
@@ -62,7 +62,6 @@ Die Benutzeroberfläche für den Endnutzer.
 * **Funktionen:** Live-Monitoring, Historische Analyse, Alarmvisualisierung.
 * **Kommunikation:** REST-Requests (JSON) an das Backend.
 
----
 #### 1.2.1 Datenmodell (Klassendiagramm)
 
 <img width="700" height ="400" alt="KlassenDia" src="https://github.com/user-attachments/assets/14027e96-07ce-4a20-adf1-d55b0f681ee1" />
@@ -238,7 +237,7 @@ Bild 3: ER Modell
     * *Verantwortung:*
         * Erweiterung von Funktionsumfang oder Kapazitäten
 
----
+
 
 #### Beziehungen und fachliche Abhängigkeiten
 
@@ -265,7 +264,7 @@ Bild 3: ER Modell
 * Eine SUBSCRIPTION kann mehrere SUBSCRIPTION_ADDON enthalten.
 * Abonnements steuern verfügbare Funktionen und Limits.
 
----
+
 
 #### Persistenz- und Speicherstrategie
 
@@ -299,12 +298,12 @@ Speichert:
 * Zeitbasierte Aggregationen
 * Effiziente Kompression und Retention
 
----
+
 
 #### Qualitätsmerkmale und Architekturtreiber
 
 | Aspekt | Beitrag des Datenmodells |
-| :--- | :--- |
+| : | : |
 | **Skalierbarkeit** | Trennung von Messdaten und Stammdaten |
 | **Erweiterbarkeit** | Entkoppelte Entitäten (Sensor, Rule, Subscription) |
 | **Wartbarkeit** | Klare Domänengrenzen |
@@ -320,7 +319,6 @@ Speichert:
 * **Physische Gerätekommunikation** ist nicht Bestandteil des Datenmodells.
 * **Historische Archivierung und Datenlöschung** erfolgen über separate Retention-Policies.
 
----
 
 #### 1.2.3 Beschreibung der transienten Daten und Schnittstellen
 
@@ -335,7 +333,7 @@ Bild 4: Messdatenübertragung (Ingestion)
 * **Schritt 4:** Der Gateway sendet die Messdaten per HTTP POST an den Backend-API-Endpunkt `/ingest`.
 * **Schritt 5:** Das Backend bestätigt den Empfang mit `202 Accepted` und stellt die Daten zur weiteren Verarbeitung in eine Warteschlange.
 
----
+
 
 <img width="700" alt="Validierung" src="https://github.com/user-attachments/assets/53f0f600-3517-4c0a-b858-299b55374d73" />
 
@@ -352,8 +350,6 @@ Bild 5: Validierung eingehender Messdaten
     * Bei gültigem Payload wird die Verarbeitung bestätigt und die API antwortet mit `202 Accepted`.
     * Bei ungültigem Payload wird die Validierung abgelehnt und die API antwortet mit `400 Bad Request` inklusive Fehlerdetails.
 
----
-
 <img width="700" height="500" alt="Speicherung" src="https://github.com/user-attachments/assets/30f78dd9-dbd7-47f7-a4c7-2959320b6d4e" />
 
 Bild 6: Speicherung validierter Messdaten
@@ -364,8 +360,6 @@ Bild 6: Speicherung validierter Messdaten
 * **Schritt 3:** Die Service Layer schreibt den Messwert mit Zeitstempel und Einheit in die Time-Series-Datenbank.
 * **Schritt 4:** Die Datenbank bestätigt den erfolgreichen Schreibvorgang.
 * **Schritt 5:** Die Backend API bestätigt die erfolgreiche Verarbeitung und kann optional Metriken oder Logs erfassen.
-
----
 
 <img width="700" alt="Screenshot 2026-01-22 140611 (1)" src="https://github.com/user-attachments/assets/2ac6828a-9d34-4f20-a900-33f0ef6adb63" />
 
@@ -427,8 +421,6 @@ Bild 9: Anmeldung
   <em>Bild 13: Analyse</em>
 </p>
 
----
-
 ### 1.4 Lastenheft
 
 #### 1.4.1 Nicht-Funktionale Anforderungen
@@ -468,7 +460,6 @@ Bild 9: Anmeldung
     * Das System soll modular aufgebaut sein.
     * Änderungen und Erweiterungen sollen mit vertretbarem Aufwand möglich sein.
 
-
 #### 1.4.2 Funktionale Anforderungen
 
 ##### 1.4.2.1 Funktionale Anforderung 1: Erfassung & Übertragung von Messdaten
@@ -503,8 +494,6 @@ Bild 9: Anmeldung
 * **Vergleich mit bestehenden Lösungen:** Im Vergleich zu umfangreichen Dashboards wird ein reduzierter Ansatz verfolgt.
 * **Grobschätzung des Aufwands:** Der Aufwand wird als mittel eingeschätzt.
 
----
-
 ## 2. Qualitätssicherung
 
 ### 2.1 Beschreibung der Umgebungen und CI-Pipeline
@@ -538,8 +527,6 @@ Die CI-Pipeline automatisiert den Build- und Testprozess bei jeder Code-Änderun
 * **Code-Qualitätsprüfung:** Statische Analyse (z. B. ESLint) zur Einhaltung von Coding-Standards.
 * **Deployment:** Automatisches Deployment auf den Staging-Server nach erfolgreichen Tests.
 
----
-
 ### 2.2 Testverfahren
 
 Es werden sowohl **Blackbox-Tests** als auch **Whitebox-Tests** eingesetzt, um die Zuverlässigkeit der Datenverarbeitung zu garantieren.
@@ -564,7 +551,6 @@ Es werden sowohl **Blackbox-Tests** als auch **Whitebox-Tests** eingesetzt, um d
 * **Genauigkeit:** Die berechneten Durchschnittswerte müssen mit den Rohdaten in der Datenbank übereinstimmen.
 * **Sicherheit:** Zugriff auf das Dashboard ist nur für autorisierte Nutzer möglich; Datenübertragung erfolgt verschlüsselt.
 
---- 
 ### 2.3 Testvorlagen
 
 Zur Dokumentation werden standardisierte Vorlagen verwendet.
@@ -572,7 +558,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 #### 2.3.1 Test Case: Nutzer anmelden und App starten
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Name des Testfalls** | Erfolgreiche Anmeldung und Initialisierung der Smart-Home-App |
 | **Kurzbezeichnung** | Login_HappyPath_001 |
 | **Test ID** | TC_AUTH_01.001 |
@@ -589,7 +575,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Testablauf**
 
 | ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| :--- | :--- | :--- | :--- | :--- |
+| : | : | : | : | : |
 | **1.000** | **App starten** | | | |
 | 1.001 | App-Icon tippen. Erwartung: Splash-Screen. | OK: App startet wie erwartet. | - | - |
 | 1.002 | Warten auf Initialisierung. | OK: Login-Maske wird geladen. | - | - |
@@ -602,7 +588,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Management Zusammenfassung**
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Status** | **FEHLGESCHLAGEN** |
 | **System-Konfiguration** | App v1.2 (Build 404), Backend Staging v2.0 |
 | **Tester** | Gia Linh Doan |
@@ -611,12 +597,10 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 | **Durchführungszeit** | 10:00 - 10:15 Uhr |
 | **Bemerkung** | Kritischer Fehler beim Login. Datenbank scheint überlastet zu sein. Ticket an Backend-Team zugewiesen. |
 
----
-
 #### 2.3.2 Test Case: Energieverbrauchsdaten erfassen und speichern
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Name des Testfalls** | Erfolgreiche Übermittlung und Speicherung von Messdaten |
 | **Kurzbezeichnung** | EnergyData_HappyPath_001 |
 | **Test ID** | TC_DATA_03.001 |
@@ -633,7 +617,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Testablauf**
 
 | ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| :--- | :--- | :--- | :--- | :--- |
+| : | : | : | : | : |
 | **1.000** | **Erfassung und Versand** | | | |
 | 1.001 | Smart Device generiert Messwert. | OK: Wert 45.2 kWh generiert. | - | - |
 | 1.002 | Senden via MQTT. | OK: Paket gesendet. | - | - |
@@ -647,7 +631,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Management Zusammenfassung**
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Status** | **BESTANDEN (mit Einschränkungen)** |
 | **System-Konfiguration** | Device FW v1.0.5, Backend v2.0 |
 | **Tester** | Gia Linh Doan |
@@ -659,7 +643,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 #### 2.2.3 Test Case: Energieverbrauch anzeigen und analysieren
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Name des Testfalls** | Anzeige und Analyse der historischen Verbrauchsdaten |
 | **Kurzbezeichnung** | Analysis_HappyPath_001 |
 | **Test ID** | TC_ANALYSIS_04.001 |
@@ -676,7 +660,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Testablauf**
 
 | ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| :--- | :--- | :--- | :--- | :--- |
+| : | : | : | : | : |
 | **1.000** | **Analysebereich aufrufen** | | | |
 | 1.001 | Menü „Energie-Analyse“ öffnen. | OK: Seite lädt. | - | - |
 | **2.000** | **Datenabruf** | | | |
@@ -689,7 +673,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 **Management Zusammenfassung**
 
 | Feld | Inhalt |
-| :--- | :--- |
+| : | : |
 | **Status** | **FEHLGESCHLAGEN** |
 | **System-Konfiguration** | iOS App v1.2 (TestFlight) |
 | **Tester** | Gia Linh Doan |
@@ -701,7 +685,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 #### 2.3.4 Mögliche Defekte
 
 | Use Case | ID | Szenario / Schritt | Möglicher Fehler | Impakt |
-| :--- | :--- | :--- | :--- | :--- |
+| : | : | : | : | : |
 | **1. Login & App Start** | **BUG-001** | App Starten (1.0) | **Crash on Startup:** App stürzt sofort nach dem Tippen auf das Icon ab. | **Blocker** |
 | | **BUG-002** | Verbindung (1.2) | **Infinite Loading:** Ladebalken läuft endlos, kein Timeout, keine Fehlermeldung bei fehlendem Internet. | **Major** |
 | | **BUG-003** | Authentifizierung (1.3) | **False Positive:** Nutzer kann sich mit falschem Passwort einloggen. | **Critical** |
@@ -720,7 +704,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 | | **BUG-023** | Zeitraum wählen (1.4) | **UI Freeze:** App friert für 5+ Sekunden ein, wenn man von „Woche“ auf „Jahr“ umschaltet (Performance). | **Medium** |
 | | **BUG-024** | UI/UX | **Overlap:** Beschriftungen der X-Achse (Datum) überlappen sich und sind unlesbar. | **Low** |
 
----
+
 
 ## 3. Projektstruktur und Ressourcenplanung
 
@@ -729,7 +713,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 Für die Entwicklung des Smart Home Dashboards wird die **Scrum-Methode** verwendet. Scrum ist ein agiles Framework, das eine iterative und inkrementelle Vorgehensweise ermöglicht, um flexibel auf Anforderungen und Feedback reagieren zu können. Das Projekt ist in **Sprints** unterteilt, die jeweils zwei Wochen dauern. Jeder Sprint hat ein klar definiertes Ziel, und am Ende jedes Sprints wird ein funktionsfähiges Inkrement der Software geliefert.
 
 | Sprint | Zeitraum | Fokus / Ziel | Wichtige Lieferergebnisse (Deliverables) |
-| :--- | :--- | :--- | :--- |
+| : | : | : | : |
 | **Sprint 1** | Woche 1-2 | **Konzept & Analyse** | Requirements (Lastenheft), Systemarchitektur-Diagramm, JSON-Definition. |
 | **Sprint 2** | Woche 3-4 | **Design & Prototyping** | UI-Mockups (Figma), Datenbank-Schema, Aufsetzen der Entwicklungsumgebung. |
 | **Sprint 3** | Woche 5-6 | **Backend Core** | MQTT-Broker Setup, Python-Skript zum Empfang der Sensordaten, Speicherung in DB. |
@@ -774,7 +758,7 @@ Die folgenden Stakeholder sind am Projekt SmartHome Dashboard beteiligt, und ihr
 #### 3.2.2 RACI-Matrix
 
 | Aktivität / Arbeitspaket | PM | Tech | QA | Private Haushalte | Hardware Partner |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| : | : | : | : | : | : |
 | **Projektmanagement & Anmeldung** | A/R | C | I | I | I |
 | **Anforderungsanalyse (User Stories)** | A | C | R | C/I | I |
 | **Home Assistant Architektur-Design** | I | A/R | C | I | C |
@@ -791,7 +775,7 @@ Die folgenden Stakeholder sind am Projekt SmartHome Dashboard beteiligt, und ihr
 * **C (Consulted / Konsultierend):** Personen, die Fachwissen beisteuern oder deren Meinung vor der Fertigstellung eingeholt wird.
 * **I (Informed / Informiert):** Personen, die über den Fortschritt oder das Ergebnis informiert werden.
 
----
+
 
 ### Beschreibung der Phasenübergänge (Quality Gates)
 
@@ -815,7 +799,7 @@ Die folgenden Stakeholder sind am Projekt SmartHome Dashboard beteiligt, und ihr
 * **Bedingung:** Durchführung eines finalen Reviews. Ein simulierter User-Acceptance-Test (UAT) oder ein Review durch die Privaten Haushalte bestätigt, dass das Dashboard-Konzept intuitiv und benutzerfreundlich ist. Alle Dokumente sind formal fehlerfrei.
 * **Verantwortung:** QA führt die finale Qualitätssicherung durch. Erst nach ihrer Freigabe und der Bestätigung durch die Stakeholder erfolgt die Einreichung des gesamten Proposals durch PM.
 
----
+
 
 ### 3.3 Sprint-Planung und agiler Methodeneinsatz
 
@@ -844,8 +828,6 @@ Um die Stabilität und Sicherheit des Dashboards im produktiven Heimbetrieb zu g
 * **Hardware-Integrationstests:** Validierung der physischen Schaltvorgänge in Zusammenarbeit mit den Hardware-Spezifikationen der Partner.
 * **Nutzerakzeptanztests (UAT):** Regelmäßige Überprüfung der Usability durch Private Haushalte, um sicherzustellen, dass das Interface intuitiv bedienbar ist.
 * **Datensicherheit & DSGVO:** Da sensible Verhaltensdaten erfasst werden, erfolgt eine strikte Trennung von lokalem Netzwerk und externem Zugriff. Die Datensouveränität der Haushalte hat oberste Priorität.
-
----
 
 ### 3.5 Marktabschätzung und Finanzierung
 
