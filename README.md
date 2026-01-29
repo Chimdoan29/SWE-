@@ -7,7 +7,6 @@
 Das Projekt **Smart Home Dashboard** befasst sich mit der Konzeption einer modernen, webbasierten Softwarelösung zur Überwachung, Analyse und Visualisierung des Energieverbrauchs in privaten Haushalten.
 
 <img width="700" alt="Mindmap" src="https://github.com/user-attachments/assets/f363a06b-4bb4-4682-9efd-8708568ea114" />
-<img width="1557" height="1339" alt="MindMap" src="https://github.com/user-attachments/assets/b2e5b657-df57-442a-815b-8cdfd93d6cef" />
 
 Bild: Mindmap
 
@@ -699,8 +698,80 @@ Es werden sowohl **Blackbox-Tests** als auch **Whitebox-Tests** eingesetzt, um d
 Zur Dokumentation werden standardisierte Vorlagen verwendet.
 
 #### 2.3.1 Test Case: Erfassung und Übertragung von Messdaten
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Speicherung von Messdaten |
+| **Version** | 1.0 |
+| **Datum** | *(leer)* |
+| **TestID** | TC-1.001 |
+| **Test Suite(s)** | Datenerfassung und Netzwerk|
+| **Priorität** | Hoch|
+| **Erforderliche Hardware** | Sensor, Mikrocontroller, Testserver |
+| **Erforderliche Software** | Embedded OS, CoAP-Client, Backend |
+| **Testdauer** | 2 Stunden |
+| **Aufwand** | 1 Stunde |
+| **Setup** | Sensor einrichten, Netzwerk konfigurieren |
+| **Rückbau** | Sensor zurücksetzen, Logs sichern |
+
+**Ablauf und Szenarien**
+| ID | Testschritt | Resultat | Defekt-Nr | Impact |
+| :--- | :--- | :--- | :--- |:---|
+| 1.000| Sensor starten| OK | |
+| 1.001 | Messwert erfassen | OK |  |
+| 1.002 | Daten an Backend senden | Fail| BUG-010| Critical|
+| 1.003 | Empfang im Backend prüfen | OK | |
+| 1.004 | Übertragungslog auswerten | OK | |
+| | | | |
+
+|**Zusammenfassung**| |
+|:---|:---|
+| Feld | Wert |
+| Status | Pass |
+| Tester | Projektteam |
+| Test beendet am|- |
+| Aufwand | 2 Stunden |
+| Durchführungszeit | 2 Stunden |
 
 #### 2.3.2 Test Case: Validierung von Messdaten
+
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Validierung von Messdaten |
+| **Version** | 4.0 |
+| **Datum** | *(leer)* |
+| **TestID** | TC-2.001 |
+| **Test Suite(s)** | Datenvalidierung |
+| **Priorität** | Hoch|
+| **Erforderliche Hardware** | Backend-Server |
+| **Erforderliche Software** | Datenbank, Validierungsmodul |
+| **Testdauer** | 1,5 Stunden |
+| **Aufwand** | 1 Stunde |
+| **Setup** | Validierungsregeln konfigurieren |
+| **Rückbau** | Testdaten löschen |
+
+**Ablauf und Szenarien**
+| ID | Testschritt | Resultat | Defekt-Nr | Impact |
+| :--- | :--- | :--- | :--- |:---|
+| 2.000| Testdaten erzeugen| OK | |
+| 2.001 | Korrekte Daten einspeisen | OK |  |
+| 2.002 | Fehlerhafte Daten einspeisen | Warning| BUG-011/BUG-012| Major|
+| 2.003 | Validierungsergebnis prüfen | OK | |
+| 2.004 | Log-Dateien analysieren | OK | |
+| | | | |
+
+|**Zusammenfassung**| |
+|:---|:---|
+| Feld | Wert |
+| Status | Pass |
+| Tester | Projektteam |
+| Test beendet am|- |
+| Aufwand | 1,5 Stunden |
+| Durchführungszeit | 1,5 Stunden |
+
 
 #### 2.3.3 Test Case: Speicherung von Messdaten
 
@@ -722,29 +793,67 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 | **Rückbau** | Testdaten löschen |
 
 **Ablauf und Szenarien**
-
 | ID | Testschritt | Resultat | Defekt-Nr | Impact |
 | :--- | :--- | :--- | :--- |:---|
-| **1** | **Backend** | **Empfängt validierte Daten** | |
-| 1.1 | Nutzer:in | Öffnet Dashboard | |
-| 1.2 | Frontend | Fordert Daten an |  |
-| 1.3 | Backend | Liefert aktuelle Daten| A1|
-| 1.4 | Frontend | Aktualisiert Anzeige | |
-| 1.5 | Nutzer:in | Betrachtet Werte | |
+| 3.000| Nutzer:in | OK | |
+| 3.001 | Frontend | OK |  |
+| 3.002 | Backend | Warning| BUG-013| Medium|
+| 3.003 | Frontend | OK | |
+| 3.004 | Nutzer:in | OK | |
 | | | | |
-| **Ausnahmen** |  | | |
-| A1 | System | Verzögerte Datenübertragung | |
-| | | | |
-| **Erweiterungen** | | | |
-| E1 | System | Automatisches Refresh| |
+
+|**Zusammenfassung**| |
+|:---|:---|
+| Feld | Wert |
+| Status | Pass |
+| Tester | Projektteam |
+| Test beendet am|- |
+| Aufwand | 2 Stunden |
+| Durchführungszeit | 2 Stunden |
 
 
 #### 2.3.4 Test Case: Echtzeitvisuallisierung von Messdaten
 
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Echtzeitvisualisierung von Messdaten|
+| **Version** | 4.0 |
+| **Datum** | *(leer)* |
+| **TestID** | TC-4.001 |
+| **Test Suite(s)** | Frontend und Dashboard|
+| **Priorität** | Hoch|
+| **Erforderliche Hardware** | PC / Tablet |
+| **Erforderliche Software** | Datenbank, Backend, Webbrowser |
+| **Testdauer** | 2 Stunden |
+| **Aufwand** | 1 Stunde |
+| **Setup** | Nutzer anmelden, Dashboard öffnen |
+| **Rückbau** | Session beenden |
+
+**Ablauf und Szenarien**
+| ID | Testschritt | Resultat | Defekt-Nr | Impact |
+| :--- | :--- | :--- | :--- |:---|
+| 4.000| Nutzer anmelden | OK | |
+| 4.001 | Dashboard öffnen| OK |  |
+| 4.002 | Live-Daten abrufen| OK |  |
+| 4.003 | Backend | Warning| BUG-021/BUG-002| High|
+| 4.004 | Reaktionszeit messen | OK | |
+| | | | |
+
+|**Zusammenfassung**| |
+|:---|:---|
+| Feld | Wert |
+| Status | Pass |
+| Tester | Projektteam |
+| Test beendet am|- |
+| Aufwand | 2 Stunden |
+| Durchführungszeit | 2 Stunden |
+
 #### 2.3.5 Mögliche Defekte
 
 | Use Case | ID | Szenario / Schritt | Möglicher Fehler | Impakt |
-| : | : | : | : | : |
+| :--- | :--- | :--- | :--- | :--- |
 | **1. Login & App Start** | **BUG-001** | App Starten (1.0) | **Crash on Startup:** App stürzt sofort nach dem Tippen auf das Icon ab. | **Blocker** |
 | | **BUG-002** | Verbindung (1.2) | **Infinite Loading:** Ladebalken läuft endlos, kein Timeout, keine Fehlermeldung bei fehlendem Internet. | **Major** |
 | | **BUG-003** | Authentifizierung (1.3) | **False Positive:** Nutzer kann sich mit falschem Passwort einloggen. | **Critical** |
@@ -772,7 +881,7 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 Für die Entwicklung des Smart Home Dashboards wird die **Scrum-Methode** verwendet. Scrum ist ein agiles Framework, das eine iterative und inkrementelle Vorgehensweise ermöglicht, um flexibel auf Anforderungen und Feedback reagieren zu können. Das Projekt ist in **Sprints** unterteilt, die jeweils zwei Wochen dauern. Jeder Sprint hat ein klar definiertes Ziel, und am Ende jedes Sprints wird ein funktionsfähiges Inkrement der Software geliefert.
 
 | Sprint | Zeitraum | Fokus / Ziel | Wichtige Lieferergebnisse (Deliverables) |
-| : | : | : | : |
+| :--- | :--- | :--- | :--- |
 | **Sprint 1** | Woche 1-2 | **Konzept & Analyse** | Requirements (Lastenheft), Systemarchitektur-Diagramm, JSON-Definition. |
 | **Sprint 2** | Woche 3-4 | **Design & Prototyping** | UI-Mockups (Figma), Datenbank-Schema, Aufsetzen der Entwicklungsumgebung. |
 | **Sprint 3** | Woche 5-6 | **Backend Core** | MQTT-Broker Setup, Python-Skript zum Empfang der Sensordaten, Speicherung in DB. |
@@ -817,7 +926,7 @@ Die folgenden Stakeholder sind am Projekt SmartHome Dashboard beteiligt, und ihr
 #### 3.2.2 RACI-Matrix
 
 | Aktivität / Arbeitspaket | PM | Tech | QA | Private Haushalte | Hardware Partner |
-| : | : | : | : | : | : |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **Projektmanagement & Anmeldung** | A/R | C | I | I | I |
 | **Anforderungsanalyse (User Stories)** | A | C | R | C/I | I |
 | **Home Assistant Architektur-Design** | I | A/R | C | I | C |
