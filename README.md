@@ -1,40 +1,64 @@
 
 # Smart Home Dashboard
 
-## Inhaltsverzeichnis
-- [1. Einleitung & Produktvorstellung](#1-einleitung--produktvorstellung)
-  - [1.1 Einleitung](#11-einleitung)
-    - [1.1.1 Abstract](#111-abstract)
-    - [1.1.2 Produktbeschreibung](#112-produktbeschreibung)
-  - [1.2 Systemarchitektur](#12-systemarchitektur)
-    - [1.2.1 Datenmodell (Klassendiagramm)](#121-datenmodell-klassendiagramm)
-    - [1.2.2 Prozessdiagramm](#122-prozessdiagramm)
-    - [1.2.3 Entity Relationship Modell](#123-entity-relationship-modell)
-    - [1.2.3 Beschreibung der transienten Daten und Schnittstellen](#123-beschreibung-der-transienten-daten-und-schnittstellen)
-  - [1.3 Mockups](#13-mockups)
-    - [1.3.1 Anmeldemaske](#131-anmeldemaske)
-    - [1.3.2 Hauptseite nach der Anmeldung](#132-hauptseite-nach-der-anmeldung)
-    - [1.3.3 Location anzeigen](#133-location-anzeigen)
-    - [1.3.4 Smart Devices aufgelistet anzeigen](#134-smart-devices-aufgelistet-anzeigen)
-    - [1.3.5 Verbrauchsübersicht](#135-verbrauchsübersicht)
-    - [1.3.6 Analyse](#136-analyse)
-  - [1.4 Lastenheft](#14-lastenheft)
-    - [1.4.1 Nicht-Funktionale Anforderungen](#141-nicht-funktionale-anforderungen)
-    - [1.4.2 Funktionale Anforderungen](#142-funktionale-anforderungen)
-      
-- [2. Qualitätssicherung](#2-qualitätssicherung)
-  - [2.1 Beschreibung der Umgebungen und CI-Pipeline](#21-beschreibung-der-umgebungen-und-ci-pipeline)
-    - [2.1.1 CI-Pipeline (Continuous Integration)](#211-ci-pipeline-continuous-integration)
-  - [2.2 Testverfahren](#22-testverfahren)
-  - [2.3 Testvorlagen](#23-testvorlagen)
+# Inhaltsverzeichnis
 
-- [3. Projektstruktur und Ressourcenplanung](#3-projektstruktur-und-ressourcenplanung)
-  - [3.1 Vorgehensweise](#31-vorgehensweise)
-  - [3.2 Work Breakdown](#32-work-breakdown)
-  - [3.3 Sprint-Planung und agiler Methodeneinsatz](#33-sprint-planung-und-agiler-methodeneinsatz)
-  - [3.4 Entwicklungs- und Testanforderungen](#34-entwicklungs--und-testanforderungen)
-  - [3.5 Marktabschätzung und Finanzierung](#35-marktabschätzung-und-finanzierung)
+```text
+1. Vorstellung des Produktes ........................................ 5
+    1.1 Einleitung ................................................... 5
+        1.1.1 Abstract ............................................... 5
+        1.1.2 Produktbeschreibung und Zielgruppe ...................... 6
 
+    1.2 Systemarchitektur ............................................ 7
+        1.2.2 Prozessdiagramm ........................................ 11
+        1.2.3 Beschreibung der persistenten Daten ..................... 15
+        1.2.4 Beschreibung der transienten Daten und Schnittstellen ... 26
+
+    1.3 Mockups ...................................................... 30
+        1.3.1 Anmeldemaske ........................................... 30
+        1.3.2 Hauptseite nach der Anmeldung ........................... 31
+                Bild 12: Hauptseite nach der Anmeldung ................. 31
+        1.3.3 Location anzeigen ....................................... 32
+                Bild 13: Location anzeigen .............................. 32
+        1.3.4 Smart Devices aufgelistet anzeigen ...................... 33
+        1.3.4 Verbrauchsübersicht ..................................... 33
+        1.3.5 Analyse ................................................. 35
+                Bild 16: Analyse ........................................ 35
+
+    1.4 Lastenheft ................................................... 36
+        1.4.1 Nicht-Funktionale Anforderungen ......................... 36
+                NFA1: Benutzerfreundlichkeit (Usability) ................ 36
+                NFA2: Performance ....................................... 36
+
+        1.4.2 Funktionale Anforderungen ............................... 37
+        1.4.2.1 Erfassung & Übertragung von Messdaten ................. 37
+        1.4.2.2 Validierung von Messdaten ............................. 39
+        1.4.2.3 Speicherung von Messdaten ............................. 41
+        1.4.2.4 Echtzeitvisualisierung ................................ 43
+
+2. Qualitätssicherung ................................................ 45
+    2.1 Beschreibung der Umgebungen und CI-Pipeline ................... 45
+        2.1.1 CI-Pipeline (Continuous Integration) .................... 45
+    2.2 Testverfahren ................................................. 46
+    2.3 Testvorlagen .................................................. 47
+    2.4 Mögliche Defekte .............................................. 51
+
+3. Projektstruktur und Ressourcenplanung .............................. 52
+    3.1 Vorgehensweise ................................................ 52
+    3.2 Work Breakdown ................................................ 52
+        3.2.1 Stakeholder und Verantwortlichkeiten .................... 52
+        3.2.2 RACI-Matrix ............................................. 54
+                Legende der Rollen ...................................... 54
+                Beschreibung der Phasenübergänge (Quality Gates) ........ 55
+                Übergang 1 – Quality Gate 1 ............................. 55
+                Übergang 2 – Quality Gate 2 ............................. 55
+                Übergang 3 – Quality Gate 3 ............................. 55
+                Übergang 4 – Quality Gate 4 ............................. 55
+
+    3.3 Sprint-Planung und agiler Methodeneinsatz ..................... 56
+    3.4 Entwicklungs- und Testanforderungen ........................... 57
+    3.5 Marktabschätzung und Finanzierung ............................. 58
+```
 ## 1. Einleitung & Produktvorstellung
 ### 1.1 Einleitung
 #### 1.1.1 Abstract
