@@ -1,6 +1,40 @@
 
 # Smart Home Dashboard
 
+## Inhaltsverzeichnis
+- [1. Einleitung & Produktvorstellung](#1-einleitung--produktvorstellung)
+  - [1.1 Einleitung](#11-einleitung)
+    - [1.1.1 Abstract](#111-abstract)
+    - [1.1.2 Produktbeschreibung](#112-produktbeschreibung)
+  - [1.2 Systemarchitektur](#12-systemarchitektur)
+    - [1.2.1 Datenmodell (Klassendiagramm)](#121-datenmodell-klassendiagramm)
+    - [1.2.2 Prozessdiagramm](#122-prozessdiagramm)
+    - [1.2.3 Entity Relationship Modell](#123-entity-relationship-modell)
+    - [1.2.3 Beschreibung der transienten Daten und Schnittstellen](#123-beschreibung-der-transienten-daten-und-schnittstellen)
+  - [1.3 Mockups](#13-mockups)
+    - [1.3.1 Anmeldemaske](#131-anmeldemaske)
+    - [1.3.2 Hauptseite nach der Anmeldung](#132-hauptseite-nach-der-anmeldung)
+    - [1.3.3 Location anzeigen](#133-location-anzeigen)
+    - [1.3.4 Smart Devices aufgelistet anzeigen](#134-smart-devices-aufgelistet-anzeigen)
+    - [1.3.5 Verbrauchsübersicht](#135-verbrauchsübersicht)
+    - [1.3.6 Analyse](#136-analyse)
+  - [1.4 Lastenheft](#14-lastenheft)
+    - [1.4.1 Nicht-Funktionale Anforderungen](#141-nicht-funktionale-anforderungen)
+    - [1.4.2 Funktionale Anforderungen](#142-funktionale-anforderungen)
+      
+- [2. Qualitätssicherung](#2-qualitätssicherung)
+  - [2.1 Beschreibung der Umgebungen und CI-Pipeline](#21-beschreibung-der-umgebungen-und-ci-pipeline)
+    - [2.1.1 CI-Pipeline (Continuous Integration)](#211-ci-pipeline-continuous-integration)
+  - [2.2 Testverfahren](#22-testverfahren)
+  - [2.3 Testvorlagen](#23-testvorlagen)
+
+- [3. Projektstruktur und Ressourcenplanung](#3-projektstruktur-und-ressourcenplanung)
+  - [3.1 Vorgehensweise](#31-vorgehensweise)
+  - [3.2 Work Breakdown](#32-work-breakdown)
+  - [3.3 Sprint-Planung und agiler Methodeneinsatz](#33-sprint-planung-und-agiler-methodeneinsatz)
+  - [3.4 Entwicklungs- und Testanforderungen](#34-entwicklungs--und-testanforderungen)
+  - [3.5 Marktabschätzung und Finanzierung](#35-marktabschätzung-und-finanzierung)
+
 ## 1. Einleitung & Produktvorstellung
 ### 1.1 Einleitung
 #### 1.1.1 Abstract
