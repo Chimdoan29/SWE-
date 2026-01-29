@@ -19,10 +19,8 @@ Ziel der Anwendung ist es, Nutzer:innen eine transparente und verständliche Üb
 Das Ergebnis ist ein vollständig ausgearbeitetes Konzept inklusive Systemarchitektur, Datenflüssen und Anforderungen. Das Dashboard dient als zentrale Informationsgrundlage für Nutzer zur Optimierung ihres Energieverbrauchs.
 
 ---
-
 ### 1.2 Systemarchitektur
-
-<img width="1936" height="1433" alt="Screenshot 2026-01-22 132318" src="https://github.com/user-attachments/assets/c1597861-2303-4ec2-b067-176f40282235" />
+<img width="700" alt="Screenshot 2026-01-22 132318" src="https://github.com/user-attachments/assets/c1597861-2303-4ec2-b067-176f40282235" />
 
 Bild 1: Systemarchitektur Diagramm
 
@@ -61,10 +59,9 @@ Die Benutzeroberfläche für den Endnutzer.
 * **Kommunikation:** REST-Requests (JSON) an das Backend.
 
 ---
-
 #### 1.2.1 Datenmodell (Klassendiagramm)
 
-<img width="1658" height="1341" alt="KlassenDia" src="https://github.com/user-attachments/assets/14027e96-07ce-4a20-adf1-d55b0f681ee1" />
+<img width="700" height ="400" alt="KlassenDia" src="https://github.com/user-attachments/assets/14027e96-07ce-4a20-adf1-d55b0f681ee1" />
 
 Bild 2: Klassendiagramm
 
@@ -147,7 +144,7 @@ Das Entity-Relationship-Modell beschreibt die persistente Datenstruktur des Syst
 
 #### 1.2.2 Entity Relationship Modell
 
-<img width="2824" height="1134" alt="ERDia" src="https://github.com/user-attachments/assets/c9685d63-8e54-454e-96f5-b8014b020761" />
+<img width="700" alt="ERDia" src="https://github.com/user-attachments/assets/c9685d63-8e54-454e-96f5-b8014b020761" />
 
 Bild 3: ER Modell
 #### Zweck des Datenmodells
@@ -323,7 +320,7 @@ Speichert:
 
 #### 1.2.3 Beschreibung der transienten Daten und Schnittstellen
 
-<img width="1493" height="950" alt="Ingestion" src="https://github.com/user-attachments/assets/e04e1480-c4ff-44d5-b80a-d355efd2e6e7" />
+<img width="700" alt="Ingestion" src="https://github.com/user-attachments/assets/e04e1480-c4ff-44d5-b80a-d355efd2e6e7" />
 
 Bild 4: Messdatenübertragung (Ingestion)
 
@@ -336,7 +333,7 @@ Bild 4: Messdatenübertragung (Ingestion)
 
 ---
 
-<img width="1720" height="973" alt="Validierung" src="https://github.com/user-attachments/assets/53f0f600-3517-4c0a-b858-299b55374d73" />
+<img width="700" alt="Validierung" src="https://github.com/user-attachments/assets/53f0f600-3517-4c0a-b858-299b55374d73" />
 
 Bild 5: Validierung eingehender Messdaten
 
@@ -353,7 +350,7 @@ Bild 5: Validierung eingehender Messdaten
 
 ---
 
-<img width="1233" height="1039" alt="Speicherung" src="https://github.com/user-attachments/assets/30f78dd9-dbd7-47f7-a4c7-2959320b6d4e" />
+<img width="700" height="500" alt="Speicherung" src="https://github.com/user-attachments/assets/30f78dd9-dbd7-47f7-a4c7-2959320b6d4e" />
 
 Bild 6: Speicherung validierter Messdaten
 
@@ -366,7 +363,7 @@ Bild 6: Speicherung validierter Messdaten
 
 ---
 
-<img width="1854" height="1068" alt="Screenshot 2026-01-22 140611 (1)" src="https://github.com/user-attachments/assets/2ac6828a-9d34-4f20-a900-33f0ef6adb63" />
+<img width="700" alt="Screenshot 2026-01-22 140611 (1)" src="https://github.com/user-attachments/assets/2ac6828a-9d34-4f20-a900-33f0ef6adb63" />
 
 Bild 7: Auffälligen Verbrauch erkennen und Alert auslösen
 
@@ -379,44 +376,53 @@ Bild 7: Auffälligen Verbrauch erkennen und Alert auslösen
     * Bei keiner Regelverletzung wird kein Ereignis erzeugt.
 * **Schritt 5:** Das Dashboard ruft regelmäßig die aktuellen Alarmereignisse über die Backend API ab und visualisiert sie.
 
----
-
 ### 1.3 Mockups
 #### 1.3.1 Anmeldemaske
 
-<img width="389" height="682" alt="Mockup_LogIn" src="https://github.com/user-attachments/assets/8a9decdf-706e-4810-8f02-5cb1ebc08b82" />
-
-Bild 8: Anmeldemaske
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8a9decdf-706e-4810-8f02-5cb1ebc08b82" width="200" alt="App Anmeldung Screen">
+  <br>
+  <em>Bild 8: Anmeldemaske
+</p>
 
 #### 1.3.2 Hauptseite nach der Anmeldung
 
-<img width="365" height="687" alt="Mockup_MainScreen" src="https://github.com/user-attachments/assets/8c49478e-2bb2-4475-b096-2f74f54de1b7" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8c49478e-2bb2-4475-b096-2f74f54de1b7" width="200" alt="App Anmeldung Screen">
+  <br>
+  <em>Bild 9: Anmeldung - Energie Monitor App</em>
+</p>
 
 Bild 9: Anmeldung
 
 #### 1.3.3 Location anzeigen
-
-<img width="346" height="691" alt="Mockup_Location" src="https://github.com/user-attachments/assets/3cc1e0ca-7c27-44d1-95f0-a184b8ca7bd7" />
-
-Bild 10: Location 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3cc1e0ca-7c27-44d1-95f0-a184b8ca7bd7" width="200" alt="Mockup_Location">
+  <br>
+  <em>Bild 10: Location </em>
+</p>
 
 #### 1.3.4 Smart Devices aufgelistet anzeigen
-
-<img width="341" height="682" alt="Mockup_SmartDevices" src="https://github.com/user-attachments/assets/a5f5db7e-e721-4bf0-980c-c05be8b9cd19" />
-
-Bild 11: SmartDevices
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a5f5db7e-e721-4bf0-980c-c05be8b9cd19" width="200" alt="Mockup_SmartDevices">
+  <br>
+  <em>Bild 11: SmartDevices</em>
+</p>
 
 #### 1.3.5 Verbrauchsübersicht
-
-<img width="351" height="683" alt="Mockup_Verbrauchsübersicht" src="https://github.com/user-attachments/assets/d066d2f7-6fc1-4d3e-bb26-2103fa211f7b" />
-
-Bild 12: Verbrauchsübersicht
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d066d2f7-6fc1-4d3e-bb26-2103fa211f7b" width="200" alt="Mockup_SmartDevices">
+  <br>
+  <em>Bild 12: Verbrauchsübersicht</em>
+</p>
 
 #### 1.3.6 Analyse
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/51e4d582-61aa-40b6-8eb5-bd6dc95d2bb3" width="200" alt="Mockup_Analyse">
+  <br>
+  <em>Bild 13: Analyse</em>
+</p>
 
-<img width="347" height="681" alt="Mockup_Analyse" src="https://github.com/user-attachments/assets/51e4d582-61aa-40b6-8eb5-bd6dc95d2bb3" />
-
-Bild 13: Analyse
 ---
 
 ### 1.4 Lastenheft
@@ -839,8 +845,7 @@ Um die Stabilität und Sicherheit des Dashboards im produktiven Heimbetrieb zu g
 
 ### 3.5 Marktabschätzung und Finanzierung
 
-
-[BMC.pdf](https://github.com/user-attachments/files/24924381/BMC.pdf)
+<img width="800" alt="BMC" src="https://github.com/user-attachments/assets/3331a5b4-1723-4377-899d-2f30276fc3af" />
 
 Bild 14: Business Model Canvas
 
@@ -854,6 +859,7 @@ Das Business Model Canvas des Smart Home Energy Dashboards bietet eine klare Üb
 * **Revenue Streams:** Das Geschäftsmodell basiert auf einem Freemium-Ansatz. Grundfunktionen sind kostenlos, während detaillierte historische Analysen und Export-Funktionen über ein Premium-Abonnement angeboten werden.
 
 Das Modell zeigt, dass durch die Kombination aus Kosteneinsparung für den Nutzer und skalierbaren Einnahmequellen ein nachhaltiger wirtschaftlicher Erfolg gesichert wird.
+
 
 
 
