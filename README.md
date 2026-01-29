@@ -144,9 +144,106 @@ Das Entity-Relationship-Modell beschreibt die persistente Datenstruktur des Syst
 * **Alarmierung:** Definition von Regeln und Verwaltung von Ereignissen.
 * **Billing:** Abbildung von Abonnements und Zusatzfunktionen.
 
-#### 1.2.2 Prozessdiagramm
+### 1.2.2 Prozessdiagramm
 
 <img width="700" alt="ProzessDia" src="https://github.com/user-attachments/assets/55c8d956-a443-493e-9c93-7d33efef86d9" />
+
+Bild: Prozessdiagramm
+
+#### Beschreibung
+
+Der Prozess beschreibt den vollständigen Ablauf von der Erfassung der Messdaten auf dem IoT-Gerät bis zur Visualisierung und Alarmanzeige im Dashboard.
+
+#### IoT Device
+
+Das IoT-Gerät erfasst physikalische Messwerte aus der Umgebung.
+
+**Aufgaben:**
+- Erfassung von Messwerten (z. B. Temperatur, Leistung, Energieverbrauch)
+- Zeitliche Abtastung der Sensorwerte
+- Bereitstellung der Rohdaten zur Übertragung
+
+**Output:**
+- Rohmessdaten
+
+#### Gateway / Converter
+
+Der Gateway empfängt die Rohdaten vom IoT-Gerät und bereitet sie für die Backend-Verarbeitung auf.
+
+**Aufgaben:**
+- Empfang der Messdaten über WiFi mit Matter/Zigbee
+- Normalisierung der gerätespezifischen Daten
+- Mapping auf ein einheitliches JSON-Format
+- Weiterleitung der Daten per HTTP POST an `/ingest`
+
+**Output:**
+- Vereinheitlichter JSON-Payload
+
+#### Backend API
+
+Die Backend API dient als zentrale Schnittstelle für die Datenannahme und Weiterleitung.
+
+**Aufgaben:**
+- Entgegennahme der Messdaten vom Gateway
+- Weiterleitung der Daten an die Service Layer
+- Asynchrone Bestätigung des Empfangs (`202 Accepted`)
+- Fehlerweitergabe bei ungültigen Anfragen
+
+**Output:**
+- HTTP-Statuscodes (`202 Accepted`, `400 Bad Request`)
+
+#### Service Layer
+
+Die Service Layer verarbeitet und validiert die eingehenden Messdaten.
+
+**Aufgaben:**
+- Schema-Validierung der JSON-Payloads
+- Plausibilitätsprüfung der Messwerte
+- Optionale Aggregation (z. B. Zeitfenster, Mittelwerte)
+- Vorbereitung der Daten für die Persistenz
+- Auflösung von Geräte- und Sensorzuordnungen
+
+**Output:**
+- Validierte und aufbereitete Messdaten
+
+#### Persistenz
+
+Das System nutzt zwei unterschiedliche Datenbanksysteme zur optimierten Speicherung.
+
+**TSDB (Time-Series Database):**
+- Speicherung hochfrequenter Zeitreihendaten
+- Persistenz von Messwerten (Sensor-ID, Zeitstempel, Wert, Einheit)
+
+**RDBMS (Relationale Datenbank):**
+- Speicherung von Stammdaten (Benutzer, Haushalte, Geräte, Sensoren)
+- Speicherung von Alarmregeln und Alarmereignissen
+
+#### Alerting-Komponente
+
+Die Alerting-Komponente überwacht Messwerte und erkennt Regelverletzungen.
+
+**Aufgaben:**
+- Laden aktiver Alarmregeln pro Sensor und Haushalt
+- Prüfung von Schwellenwerten und Zeitbedingungen
+- Erzeugung von Alarmereignissen bei Regelverletzung
+- Persistenz der Alarmereignisse im RDBMS
+
+**Output:**
+- Alarmereignisse für die Dashboard-Visualisierung
+
+
+### Dashboard (Client)
+
+Das Dashboard visualisiert Messdaten und Alarmereignisse für den Benutzer.
+
+**Aufgaben:**
+- Abfrage von Messdaten (`GET /measurements`)
+- Abfrage von Alarmen (`GET /alerts`)
+- Darstellung von Live- und historischen Daten
+- Anzeige von Warnungen und Alarmen
+
+**Output:**
+- Visualisierte Messdaten und Alarmmeldungen
 
 
 #### 1.2.3 Entity Relationship Modell
@@ -269,7 +366,6 @@ Bild 3: ER Modell
 * Abonnements steuern verfügbare Funktionen und Limits.
 
 
-
 #### Persistenz- und Speicherstrategie
 
 Das Datenmodell unterstützt eine hybride Speicherstrategie:
@@ -377,7 +473,7 @@ Bild 7: Auffälligen Verbrauch erkennen und Alert auslösen
     * Bei Regelverletzung wird ein Alarmereignis in der Datenbank gespeichert.
     * Bei keiner Regelverletzung wird kein Ereignis erzeugt.
 * **Schritt 5:** Das Dashboard ruft regelmäßig die aktuellen Alarmereignisse über die Backend API ab und visualisiert sie.
-* 
+  
 ### 1.3 Mockups
 #### 1.3.1 Anmeldemaske
 
