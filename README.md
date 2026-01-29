@@ -338,8 +338,6 @@ Bild 3: ER Modell
     * *Verantwortung:*
         * Erweiterung von Funktionsumfang oder Kapazitäten
 
-
-
 #### Beziehungen und fachliche Abhängigkeiten
 
 **Benutzer und Haushalte**
@@ -364,7 +362,6 @@ Bild 3: ER Modell
 * Ein USER kann mehrere SUBSCRIPTION besitzen.
 * Eine SUBSCRIPTION kann mehrere SUBSCRIPTION_ADDON enthalten.
 * Abonnements steuern verfügbare Funktionen und Limits.
-
 
 #### Persistenz- und Speicherstrategie
 
@@ -398,8 +395,6 @@ Speichert:
 * Zeitbasierte Aggregationen
 * Effiziente Kompression und Retention
 
-
-
 #### Qualitätsmerkmale und Architekturtreiber
 
 | Aspekt | Beitrag des Datenmodells |
@@ -432,8 +427,6 @@ Bild 4: Messdatenübertragung (Ingestion)
 * **Schritt 3:** Der Gateway normalisiert die Daten und mappt sie auf ein einheitliches JSON-Format.
 * **Schritt 4:** Der Gateway sendet die Messdaten per HTTP POST an den Backend-API-Endpunkt `/ingest`.
 * **Schritt 5:** Das Backend bestätigt den Empfang mit `202 Accepted` und stellt die Daten zur weiteren Verarbeitung in eine Warteschlange.
-
-
 
 <img width="700" alt="Validierung" src="https://github.com/user-attachments/assets/53f0f600-3517-4c0a-b858-299b55374d73" />
 
@@ -907,7 +900,6 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 | Aufwand | 2 Stunden |
 | Durchführungszeit | 2 Stunden |
 
-
 #### 2.3.4 Test Case: Echtzeitvisuallisierung von Messdaten
 
 **Allgemeine Informationen**
@@ -968,8 +960,6 @@ Zur Dokumentation werden standardisierte Vorlagen verwendet.
 | | **BUG-023** | Zeitraum wählen (1.4) | **UI Freeze:** App friert für 5+ Sekunden ein, wenn man von „Woche“ auf „Jahr“ umschaltet (Performance). | **Medium** |
 | | **BUG-024** | UI/UX | **Overlap:** Beschriftungen der X-Achse (Datum) überlappen sich und sind unlesbar. | **Low** |
 
-
-
 ## 3. Projektstruktur und Ressourcenplanung
 
 ### 3.1 Vorgehensweise
@@ -978,12 +968,12 @@ Für die Entwicklung des Smart Home Dashboards wird die **Scrum-Methode** verwen
 
 | Sprint | Zeitraum | Fokus / Ziel | Wichtige Lieferergebnisse (Deliverables) |
 | :--- | :--- | :--- | :--- |
-| **Sprint 1** | Woche 1-2 | **Konzept & Analyse** | Requirements (Lastenheft), Systemarchitektur-Diagramm, JSON-Definition. |
-| **Sprint 2** | Woche 3-4 | **Design & Prototyping** | UI-Mockups (Figma), Datenbank-Schema, Aufsetzen der Entwicklungsumgebung. |
-| **Sprint 3** | Woche 5-6 | **Backend Core** | MQTT-Broker Setup, Python-Skript zum Empfang der Sensordaten, Speicherung in DB. |
-| **Sprint 4** | Woche 7-8 | **Frontend Development** | Entwicklung des Dashboards (React), Visualisierung der Echtzeit-Werte (Tacho). |
-| **Sprint 5** | Woche 9-10 | **Integration & Testing** | Verknüpfung von Sensor und Frontend, Test der Warnmeldungen (Alerts), Bugfixing. |
-| **Sprint 6** | Woche 11-12 | **Finalisierung** | Dokumentation, User Guide, Abschlusspräsentation, Deployment. |
+|**Sprint 1**| Woche 1-2 | **Konzept & Analyse** | Requirements (Lastenheft), Systemarchitektur-Diagramm, JSON-Definition. |
+|**Sprint 2**| Woche 3-4 | **Design & Prototyping** | UI-Mockups (Figma), Datenbank-Schema, Aufsetzen der Entwicklungsumgebung. |
+|**Sprint 3**| Woche 5-6 | **Backend Core** | MQTT-Broker Setup, Python-Skript zum Empfang der Sensordaten, Speicherung in DB. |
+|**Sprint 4**| Woche 7-8 | **Frontend Development** | Entwicklung des Dashboards (React), Visualisierung der Echtzeit-Werte (Tacho). |
+|**Sprint 5**| Woche 9-10 | **Integration & Testing** | Verknüpfung von Sensor und Frontend, Test der Warnmeldungen (Alerts), Bugfixing. |
+|**Sprint 6**| Woche 11-12 | **Finalisierung** | Dokumentation, User Guide, Abschlusspräsentation, Deployment. |
 
 
 ### 3.2 Work Breakdown
