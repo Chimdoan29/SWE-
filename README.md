@@ -66,7 +66,6 @@ Die Benutzeroberfläche für den Endnutzer.
 
 <img width="1658" height="1341" alt="KlassenDia" src="https://github.com/user-attachments/assets/14027e96-07ce-4a20-adf1-d55b0f681ee1" />
 
-
 Bild 2: Klassendiagramm
 
 #### Benutzer & Haushalte
@@ -150,6 +149,7 @@ Das Entity-Relationship-Modell beschreibt die persistente Datenstruktur des Syst
 
 <img width="2824" height="1134" alt="ERDia" src="https://github.com/user-attachments/assets/c9685d63-8e54-454e-96f5-b8014b020761" />
 
+Bild 3: ER Modell
 #### Zweck des Datenmodells
 * **User ↔ Household:** n:m (realisiert über `HouseholdMember`).
 * **Household → Device:** 1:n
@@ -312,7 +312,6 @@ Speichert:
 | **Datenkonsistenz** | Relationale Integrität |
 | **Nachvollziehbarkeit** | Historisierung von Events und Messdaten |
 
----
 
 #### Abgrenzung und Annahmen
 
@@ -320,11 +319,13 @@ Speichert:
 * **Physische Gerätekommunikation** ist nicht Bestandteil des Datenmodells.
 * **Historische Archivierung und Datenlöschung** erfolgen über separate Retention-Policies.
 
+---
+
 #### 1.2.3 Beschreibung der transienten Daten und Schnittstellen
 
 <img width="1493" height="950" alt="Ingestion" src="https://github.com/user-attachments/assets/e04e1480-c4ff-44d5-b80a-d355efd2e6e7" />
 
-Bild 7: Messdatenübertragung (Ingestion)
+Bild 4: Messdatenübertragung (Ingestion)
 
 **Beschreibung des Sequenzdiagramm:**
 * **Schritt 1:** IoT-Gerät erfasst einen Messwert über das lokale Netzwerk (WiFi mit Matter/Zigbee).
@@ -337,7 +338,7 @@ Bild 7: Messdatenübertragung (Ingestion)
 
 <img width="1720" height="973" alt="Validierung" src="https://github.com/user-attachments/assets/53f0f600-3517-4c0a-b858-299b55374d73" />
 
-Bild 8: Validierung eingehender Messdaten
+Bild 5: Validierung eingehender Messdaten
 
 **Beschreibung des Sequenzdiagramm:**
 * **Schritt 1:** Der Gateway sendet einen JSON-Payload an den Backend-API-Endpunkt `/ingest`.
@@ -354,7 +355,7 @@ Bild 8: Validierung eingehender Messdaten
 
 <img width="1233" height="1039" alt="Speicherung" src="https://github.com/user-attachments/assets/30f78dd9-dbd7-47f7-a4c7-2959320b6d4e" />
 
-Bild 9: Speicherung validierter Messdaten
+Bild 6: Speicherung validierter Messdaten
 
 **Beschreibung des Sequenzdiagramm:**
 * **Schritt 1:** Die Backend API übergibt einen validierten Payload an die Service Layer zur Verarbeitung.
@@ -367,7 +368,7 @@ Bild 9: Speicherung validierter Messdaten
 
 <img width="1854" height="1068" alt="Screenshot 2026-01-22 140611 (1)" src="https://github.com/user-attachments/assets/2ac6828a-9d34-4f20-a900-33f0ef6adb63" />
 
-Bild 10: Auffälligen Verbrauch erkennen und Alert auslösen
+Bild 7: Auffälligen Verbrauch erkennen und Alert auslösen
 
 **Beschreibung des Sequenzdiagramm:**
 * **Schritt 1:** Die Service Layer übergibt neue Messwerte an das Alerting-Modul zur Auswertung.
@@ -385,26 +386,37 @@ Bild 10: Auffälligen Verbrauch erkennen und Alert auslösen
 
 <img width="389" height="682" alt="Mockup_LogIn" src="https://github.com/user-attachments/assets/8a9decdf-706e-4810-8f02-5cb1ebc08b82" />
 
+Bild 8: Anmeldemaske
+
 #### 1.3.2 Hauptseite nach der Anmeldung
 
 <img width="365" height="687" alt="Mockup_MainScreen" src="https://github.com/user-attachments/assets/8c49478e-2bb2-4475-b096-2f74f54de1b7" />
+
+Bild 9: Anmeldung
 
 #### 1.3.3 Location anzeigen
 
 <img width="346" height="691" alt="Mockup_Location" src="https://github.com/user-attachments/assets/3cc1e0ca-7c27-44d1-95f0-a184b8ca7bd7" />
 
+Bild 10: Location 
+
 #### 1.3.4 Smart Devices aufgelistet anzeigen
 
 <img width="341" height="682" alt="Mockup_SmartDevices" src="https://github.com/user-attachments/assets/a5f5db7e-e721-4bf0-980c-c05be8b9cd19" />
+
+Bild 11: SmartDevices
 
 #### 1.3.5 Verbrauchsübersicht
 
 <img width="351" height="683" alt="Mockup_Verbrauchsübersicht" src="https://github.com/user-attachments/assets/d066d2f7-6fc1-4d3e-bb26-2103fa211f7b" />
 
+Bild 12: Verbrauchsübersicht
+
 #### 1.3.6 Analyse
 
 <img width="347" height="681" alt="Mockup_Analyse" src="https://github.com/user-attachments/assets/51e4d582-61aa-40b6-8eb5-bd6dc95d2bb3" />
 
+Bild 13: Analyse
 ---
 
 ### 1.4 Lastenheft
@@ -830,7 +842,7 @@ Um die Stabilität und Sicherheit des Dashboards im produktiven Heimbetrieb zu g
 
 [BMC.pdf](https://github.com/user-attachments/files/24924381/BMC.pdf)
 
-Bild 10: Business Model Canvas
+Bild 14: Business Model Canvas
 
 **Beschreibung des Business Model Canvas:**
 
