@@ -6,6 +6,10 @@
 #### 1.1.1 Abstract
 Das Projekt **Smart Home Dashboard** befasst sich mit der Konzeption einer modernen, webbasierten Softwarelösung zur Überwachung, Analyse und Visualisierung des Energieverbrauchs in privaten Haushalten.
 
+<img width="700" alt="Mindmap" src="https://github.com/user-attachments/assets/f363a06b-4bb4-4682-9efd-8708568ea114" />
+
+Bild: Mindmap
+
 Ziel der Anwendung ist es, Nutzer:innen eine transparente und verständliche Übersicht über ihren aktuellen sowie historischen Energieverbrauch bereitzustellen. Dadurch soll ein bewussteres und nachhaltigeres Energieverhalten gefördert werden.
 
 **Kernfunktionen:**
