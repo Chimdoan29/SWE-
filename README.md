@@ -145,7 +145,12 @@ Das Entity-Relationship-Modell beschreibt die persistente Datenstruktur des Syst
 * **Alarmierung:** Definition von Regeln und Verwaltung von Ereignissen.
 * **Billing:** Abbildung von Abonnements und Zusatzfunktionen.
 
-#### 1.2.2 Entity Relationship Modell
+#### 1.2.2 Prozessdiagramm
+
+<img width="700" alt="ProzessDia" src="https://github.com/user-attachments/assets/55c8d956-a443-493e-9c93-7d33efef86d9" />
+
+
+#### 1.2.3 Entity Relationship Modell
 
 <img width="700" alt="ERDia" src="https://github.com/user-attachments/assets/c9685d63-8e54-454e-96f5-b8014b020761" />
 
@@ -373,7 +378,7 @@ Bild 7: Auffälligen Verbrauch erkennen und Alert auslösen
     * Bei Regelverletzung wird ein Alarmereignis in der Datenbank gespeichert.
     * Bei keiner Regelverletzung wird kein Ereignis erzeugt.
 * **Schritt 5:** Das Dashboard ruft regelmäßig die aktuellen Alarmereignisse über die Backend API ab und visualisiert sie.
-
+* 
 ### 1.3 Mockups
 #### 1.3.1 Anmeldemaske
 
@@ -462,7 +467,44 @@ Bild 9: Anmeldung
 
 #### 1.4.2 Funktionale Anforderungen
 
+<img width="700" alt="MindmapFAV3" src="https://github.com/user-attachments/assets/e049f4ac-4149-4d11-ab43-b02ad993affc" />
+Bild: funktionale Anforderungen
+
 ##### 1.4.2.1 Funktionale Anforderung 1: Erfassung & Übertragung von Messdaten
+ 
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Validierung von Messdaten |
+| **Version** | 1.0 |
+| **Datum** | *(leer)* |
+| **Autor** | Energie Monitor Team |
+| **Kurzbeschreibung** | Sensoren erfassen Messdaten und übertragen sie an das Backend-System. |
+| **Primärer Akteur** | Sensor / Mikrocontroller |
+| **Sekundärer Akteur** | Backend-Server |
+| **Auslöser / Vorbedingung** | Sensor ist aktiv, Netzwerkverbindung besteht |
+| **Ergebnisse / Nachbedingungen** | Messdaten sind erfolgreich im Backend angekommen|
+| **Technische Randbedingungen** |1.CoAP <br> 2.WLAN <br> 3.Embedded OS|
+| **Allgemeine Bemerkungen** | Übertragung erfolgt automatisch |
+| **Offene Punkte** | Pufferung bei Netzwerkausfall |
+
+**Ablauf und Szenarien**
+
+| Schritt | Akteur | Ablauf | Verzweigung |
+| :--- | :--- | :--- | :--- |
+| **1** | **Backend** | **Empfängt Messdaten** | |
+| 1.1 | Sensor | Erfasst Messwert |  |
+| 1.2 | Sensor | Bereitet Daten auf |  |
+| 1.3 | Sensor | Sendet Daten an Backend |A1|
+| 1.4 | Backend | Empfängt Daten | |
+| 1.5 | Backend | Bestätigt Empfang | |
+| | | | |
+| **Ausnahmen** | | | |
+| A1 | System | Ungültiges Datenformat | |
+| | | | |
+| **Erweiterungen** | | | |
+| E1 | System | Automatische Korrektur einfacher Fehler | |
 
 * **Beschreibung:** Das System muss Messdaten von Sensoren erfassen, die auf Mikrocontrollern mit Embedded-Betriebssystem betrieben werden, und diese über das Heimnetzwerk an ein zentrales Backend übertragen.
 * **Wechselwirkungen:** Diese Anforderung steht in Wechselwirkung mit der Netzwerkstabilität sowie mit der Backend-Verarbeitung und Visualisierung.
@@ -472,6 +514,40 @@ Bild 9: Anmeldung
 
 ##### 1.4.2.2 Funktionale Anforderung 2: Validierung von Messdaten
 
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Validierung von Messdaten |
+| **Version** | 2.0 |
+| **Datum** | *(leer)* |
+| **Autor** | Energie Monitor Team |
+| **Kurzbeschreibung** | Eingehende Messdaten werden auf Plausibilität geprüft. |
+| **Primärer Akteur** | Backend-System |
+| **Sekundärer Akteur** | Datenbank |
+| **Auslöser / Vorbedingung** | Neue Messdaten liegen vor. |
+| **Ergebnisse / Nachbedingungen** | Daten sind validiert oder verworfen. |
+| **Technische Randbedingungen** | 1. Validierungsregeln<br>2. Serverlogik |
+| **Allgemeine Bemerkungen** | Validierung erfolgt automatisch. |
+| **Offene Punkte** | Erweiterbare Prüfregeln |
+
+**Ablauf und Szenarien**
+
+| Schritt | Akteur | Ablauf | Verzweigung |
+| :--- | :--- | :--- | :--- |
+| **1** | **Backend** | **Empfängt Messdaten** | |
+| 1.1 | Backend | Prüft Format | A1 |
+| 1.2 | Backend | Prüft Wertebereich | A2 |
+| 1.3 | Backend | Markiert Daten als gültig | |
+| 1.4 | Backend | Übergibt an Speicherung | |
+| | | | |
+| **Ausnahmen** | **(System)** | | |
+| A1 | System | Ungültiges Datenformat | |
+| A2 | System | Unplausible Messwerte | |
+| | | | |
+| **Erweiterungen** | **(System)** | | |
+| E1 | System | Automatische Korrektur einfacher Fehler | |
+
 * **Beschreibung:** Eingehende Messdaten müssen auf Korrektheit, Vollständigkeit und Plausibilität geprüft werden.
 * **Wechselwirkungen:** Die Validierung beeinflusst die Datenqualität und die Zuverlässigkeit der Visualisierung.
 * **Risiken:** Fehlerhafte Validierung kann zu falschen Darstellungen führen.
@@ -480,6 +556,39 @@ Bild 9: Anmeldung
 
 ##### 1.4.2.3 Funktionale Anforderung 3: Speicherung von Messdaten
 
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Speicherung von Messdaten |
+| **Version** | 3.0 |
+| **Datum** | *(leer)* |
+| **Autor** | Energie Monitor Team |
+| **Kurzbeschreibung** | Validierte Messdaten werden dauerhaft gespeichert. |
+| **Primärer Akteur** | Backend-System |
+| **Sekundärer Akteur** | Datenbank |
+| **Auslöser / Vorbedingung** | Daten wurden validiert. |
+| **Ergebnisse / Nachbedingungen** | Daten sind persistent gespeichert. |
+| **Technische Randbedingungen** | 1. Dateisystem<br>2. Datenbank |
+| **Allgemeine Bemerkungen** | Speicherung erfolgt chronologisch. |
+| **Offene Punkte** | Backup-Strategie |
+
+**Ablauf und Szenarien**
+
+| Schritt | Akteur | Ablauf | Verzweigung |
+| :--- | :--- | :--- | :--- |
+| **1** | **Backend** | **Empfängt validierte Daten** | |
+| 1.1 | Backend | Bereitet Speicherung vor | |
+| 1.2 | Backend | Schreibt Daten in DB | A1 |
+| 1.3 | Backend | Bestätigt Speicherung | |
+| 1.4 | Datenbank | Aktualisiert Index | |
+| | | | |
+| **Ausnahmen** | **(System)** | | |
+| A1 | System | Speicherfehler | |
+| | | | |
+| **Erweiterungen** | **(System)** | | |
+| E1 | System | Automatisches Backup | |
+
 * **Beschreibung:** Validierte Messdaten müssen persistent gespeichert werden, um historische Auswertungen zu ermöglichen.
 * **Wechselwirkungen:** Die Speicherung bildet die Grundlage für Verlaufsdarstellungen und Analysen.
 * **Risiken:** Wachsende Datenmengen können die Performance beeinträchtigen.
@@ -487,6 +596,40 @@ Bild 9: Anmeldung
 * **Grobschätzung des Aufwands:** Der Aufwand wird als mittel eingeschätzt.
 
 ##### 1.4.2.4 Funktionale Anforderung 4: Echtzeitvisualisierung
+
+**Allgemeine Informationen**
+
+| Feld | Inhalt |
+| :--- | :--- |
+| **Name des Testfalls** | Speicherung von Messdaten |
+| **Version** | 4.0 |
+| **Datum** | *(leer)* |
+| **Autor** | Energie Monitor Team |
+| **Kurzbeschreibung** | Aktuelle Messdaten werden im Dashboard dargestellt. |
+| **Primärer Akteur** | Nutzer:in|
+| **Sekundärer Akteur** | Web-Frontend, Backend |
+| **Auslöser / Vorbedingung** | Daten wurden angemeldet. |
+| **Ergebnisse / Nachbedingungen** | Aktuelle Daten sind sichtbar |
+| **Technische Randbedingungen** | 1. WebSocket / HTTP <br>2. Browser |
+| **Allgemeine Bemerkungen** | Darstellung nahezu verzögerungsfrei |
+| **Offene Punkte** | Anpassung der Aktualisierungsrate |
+
+**Ablauf und Szenarien**
+
+| Schritt | Akteur | Ablauf | Verzweigung |
+| :--- | :--- | :--- | :--- |
+| **1** | **Backend** | **Empfängt validierte Daten** | |
+| 1.1 | Nutzer:in | Öffnet Dashboard | |
+| 1.2 | Frontend | Fordert Daten an |  |
+| 1.3 | Backend | Liefert aktuelle Daten| A1|
+| 1.4 | Frontend | Aktualisiert Anzeige | |
+| 1.5 | Nutzer:in | Betrachtet Werte | |
+| | | | |
+| **Ausnahmen** |  | | |
+| A1 | System | Verzögerte Datenübertragung | |
+| | | | |
+| **Erweiterungen** | | | |
+| E1 | System | Automatisches Refresh| |
 
 * **Beschreibung:** Aktuelle Messdaten sollen nahezu in Echtzeit im Web-Dashboard dargestellt werden.
 * **Wechselwirkungen:** Diese Anforderung hängt stark von der Übertragungs- und Backend-Performance ab.
@@ -555,134 +698,50 @@ Es werden sowohl **Blackbox-Tests** als auch **Whitebox-Tests** eingesetzt, um d
 
 Zur Dokumentation werden standardisierte Vorlagen verwendet.
 
-#### 2.3.1 Test Case: Nutzer anmelden und App starten
+#### 2.3.1 Test Case: Erfassung und Übertragung von Messdaten
+
+#### 2.3.2 Test Case: Validierung von Messdaten
+
+#### 2.3.3 Test Case: Speicherung von Messdaten
+
+**Allgemeine Informationen**
 
 | Feld | Inhalt |
-| : | : |
-| **Name des Testfalls** | Erfolgreiche Anmeldung und Initialisierung der Smart-Home-App |
-| **Kurzbezeichnung** | Login_HappyPath_001 |
-| **Test ID** | TC_AUTH_01.001 |
-| **Fünfstellige Anfrage** | AUTH.01.001 |
-| **Test Suite(s)** | Regression Suite, Smoke Test Suite, Smart-Home-Core |
-| **Priority** | 1 - Hoch (Blocker) |
-| **Erforderliche Hardware** | Test-Smartphone (Android/iOS) mit aktiver Internetverbindung |
-| **Erforderliche Software** | Smart-Home-App (installierte Version), Backend-Environment (Staging/Prod) |
-| **Testdauer** | ca. 2-3 Minuten |
-| **Aufwand** | 1 Person |
-| **Setup** | 1. App ist auf dem Gerät installiert. <br> 2. Ein valides Nutzerkonto (User/PW) ist im Backend angelegt. <br> 3. Das Gerät hat eine stabile Internetverbindung (WLAN/4G).|
-|**Rückbau**|1. Aus der App ausloggen. <br> 2. App schließen (aus dem Speicher entfernen).
+| :--- | :--- |
+| **Name des Testfalls** | Speicherung von Messdaten |
+| **Version** | 4.0 |
+| **Datum** | *(leer)* |
+| **TestID** | TC-3.001 |
+| **Test Suite(s)** | Datenspeicherung |
+| **Priorität** | Hoch|
+| **Erforderliche Hardware** | Server mit Speicher |
+| **Erforderliche Software** | Datenbank, Backend |
+| **Testdauer** | 2 Stunden |
+| **Aufwand** | 1 Stunde |
+| **Setup** | Datenbank intialisieren |
+| **Rückbau** | Testdaten löschen |
 
-**Testablauf**
+**Ablauf und Szenarien**
 
-| ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| : | : | : | : | : |
-| **1.000** | **App starten** | | | |
-| 1.001 | App-Icon tippen. Erwartung: Splash-Screen. | OK: App startet wie erwartet. | - | - |
-| 1.002 | Warten auf Initialisierung. | OK: Login-Maske wird geladen. | - | - |
-| **2.000** | **Authentifizierung** | | | |
-| 2.001 | Daten eingeben, „Anmelden“ klicken. | OK: Ladeindikator erscheint. | - | - |
-| 2.002 | Warten auf Serverantwort (HTTP 200). | FEHLGESCHLAGEN: App zeigt nach 30s „Zeitüberschreitung / Timeout“ an. Server logs zeigen langsame DB-Query. | **DEF-001** | **Critical** |
-| **3.000** | **Profil laden** | | | |
-| 3.001 | Überprüfen des Dashboards. | Blockiert: Schritt nicht ausführbar wegen Fehler in 2.002. | - | - |
+| ID | Testschritt | Resultat | Defekt-Nr | Impact |
+| :--- | :--- | :--- | :--- |:---|
+| **1** | **Backend** | **Empfängt validierte Daten** | |
+| 1.1 | Nutzer:in | Öffnet Dashboard | |
+| 1.2 | Frontend | Fordert Daten an |  |
+| 1.3 | Backend | Liefert aktuelle Daten| A1|
+| 1.4 | Frontend | Aktualisiert Anzeige | |
+| 1.5 | Nutzer:in | Betrachtet Werte | |
+| | | | |
+| **Ausnahmen** |  | | |
+| A1 | System | Verzögerte Datenübertragung | |
+| | | | |
+| **Erweiterungen** | | | |
+| E1 | System | Automatisches Refresh| |
 
-**Management Zusammenfassung**
 
-| Feld | Inhalt |
-| : | : |
-| **Status** | **FEHLGESCHLAGEN** |
-| **System-Konfiguration** | App v1.2 (Build 404), Backend Staging v2.0 |
-| **Tester** | Gia Linh Doan |
-| **Test beendet am** | 28.01.2025, 10:15 Uhr |
-| **Aufwand** | 15 Minuten (inkl. Fehleranalyse) |
-| **Durchführungszeit** | 10:00 - 10:15 Uhr |
-| **Bemerkung** | Kritischer Fehler beim Login. Datenbank scheint überlastet zu sein. Ticket an Backend-Team zugewiesen. |
+#### 2.3.4 Test Case: Echtzeitvisuallisierung von Messdaten
 
-#### 2.3.2 Test Case: Energieverbrauchsdaten erfassen und speichern
-
-| Feld | Inhalt |
-| : | : |
-| **Name des Testfalls** | Erfolgreiche Übermittlung und Speicherung von Messdaten |
-| **Kurzbezeichnung** | EnergyData_HappyPath_001 |
-| **Test ID** | TC_DATA_03.001 |
-| **Fünfstellige Anfrage** | DATA.03.001 |
-| **Test Suite(s)** | Data Ingestion Suite, Backend Integration, Smart-Home-Core |
-| **Priority** | 1 - Hoch (Kernfunktion) |
-| **Erforderliche Hardware** | Registriertes Smart Device (oder Simulator), Backend-Server, Datenbank-Zugriff |
-| **Erforderliche Software** | Firmware v1.x, Backend API, MQTT-Broker/HTTP-Server |
-| **Testdauer** | ca. 5 Minuten |
-| **Aufwand** | 1 Person |
-| **Setup**| 1. Smart Device ist eingeschaltet, registriert und mit dem Netzwerk verbunden (Vorbedingung). <br> 2. Backend-Dienste und Datenbank sind online (Vorbedingung).<br> 3. Log-Zugriff für Backend ist eingerichtet.
-| **Rückbau**|1. Generierten Test-Datensatz aus der Datenbank löschen (optional, um DB sauber zu halten).|
-
-**Testablauf**
-
-| ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| : | : | : | : | : |
-| **1.000** | **Erfassung und Versand** | | | |
-| 1.001 | Smart Device generiert Messwert. | OK: Wert 45.2 kWh generiert. | - | - |
-| 1.002 | Senden via MQTT. | OK: Paket gesendet. | - | - |
-| **2.000** | **Empfang und Validierung** | | | |
-| 2.001 | Backend-Logs prüfen. | OK: Empfang bestätigt. | - | - |
-| 2.002 | Validierung prüfen. | OK: JSON ist valide. | - | - |
-| **3.000** | **Speicherung** | | | |
-| 3.001 | Datenbank prüfen. | OK: Datensatz gefunden. | - | - |
-| 3.002 | Abschlussprüfung System-Logs. | FEHLGESCHLAGEN: Keine Erfolgsmeldung im audit.log gefunden. Transaktion ist in DB, aber nicht im Audit-Trail. | **DEF-014** | **Low** |
-
-**Management Zusammenfassung**
-
-| Feld | Inhalt |
-| : | : |
-| **Status** | **BESTANDEN (mit Einschränkungen)** |
-| **System-Konfiguration** | Device FW v1.0.5, Backend v2.0 |
-| **Tester** | Gia Linh Doan |
-| **Test beendet am** | 28.01.2025, 11:30 Uhr |
-| **Aufwand** | 10 Minuten |
-| **Durchführungszeit** | 11:20 - 11:30 Uhr |
-| **Bemerkung** | Hauptfunktion (Speichern) geht. Nur das Audit-Logging fehlt. Release kann erfolgen, Patch später. |
-
-#### 2.2.3 Test Case: Energieverbrauch anzeigen und analysieren
-
-| Feld | Inhalt |
-| : | : |
-| **Name des Testfalls** | Anzeige und Analyse der historischen Verbrauchsdaten |
-| **Kurzbezeichnung** | Analysis_HappyPath_001 |
-| **Test ID** | TC_ANALYSIS_04.001 |
-| **Fünfstellige Anfrage** | ANALY.04.001 |
-| **Test Suite(s)** | Frontend UI Suite, Data Visualization, Integration Test |
-| **Priority** | 2 - Hoch (Wichtige Benutzerfunktion) |
-| **Erforderliche Hardware** | Smartphone/Desktop mit Display, Internetzugang |
-| **Erforderliche Software** | Smart-Home-App v1.x, Backend mit historischen Daten |
-| **Testdauer** | ca. 3-5 Minuten |
-| **Aufwand** | 1 Person |
-| **Setup**|1. Nutzer ist in der App angemeldet (Vorbedingung).<br> 2. Es sind historische Verbrauchsdaten in der Datenbank vorhanden (Vorbedingung).<br> 3. Internetverbindung ist stabil.
-| **Rückbau**|1. Zurück zum Dashboard navigieren.
-
-**Testablauf**
-
-| ID | Test Schritt (Aktion & Erwartung) | Resultat (Ist-Zustand) | Defekt-Nr. | Impakt |
-| : | : | : | : | : |
-| **1.000** | **Analysebereich aufrufen** | | | |
-| 1.001 | Menü „Energie-Analyse“ öffnen. | OK: Seite lädt. | - | - |
-| **2.000** | **Datenabruf** | | | |
-| 2.001 | Warten auf Daten. | OK: Daten empfangen. | - | - |
-| 2.002 | Prüfung der grafischen Darstellung. | FEHLGESCHLAGEN: Balkendiagramm wird angezeigt, aber die Beschriftungen der X-Achse überlappen sich stark (unleserlich auf iPhone SE). | **DEF-024** | **Medium** |
-| **3.000** | **Interaktion** | | | |
-| 3.001 | Zeitraum ändern (Woche -> Monat). | OK: Daten aktualisieren sich. | - | - |
-| 3.002 | Tap auf Datenpunkt. | OK: Tooltip korrekt. | - | - |
-
-**Management Zusammenfassung**
-
-| Feld | Inhalt |
-| : | : |
-| **Status** | **FEHLGESCHLAGEN** |
-| **System-Konfiguration** | iOS App v1.2 (TestFlight) |
-| **Tester** | Gia Linh Doan |
-| **Test beendet am** | 28.01.2025, 14:00 Uhr |
-| **Aufwand** | 20 Minuten |
-| **Durchführungszeit** | 13:40 - 14:00 Uhr |
-| **Bemerkung** | UI-Bug auf kleinen Bildschirmen. Die Funktion ist nutzbar, sieht aber unprofessionell aus. Fix benötigt vor Release. |
-
-#### 2.3.4 Mögliche Defekte
+#### 2.3.5 Mögliche Defekte
 
 | Use Case | ID | Szenario / Schritt | Möglicher Fehler | Impakt |
 | : | : | : | : | : |
@@ -774,7 +833,6 @@ Die folgenden Stakeholder sind am Projekt SmartHome Dashboard beteiligt, und ihr
 * **A (Accountable / Ausführend):** Die Person, welche die Aufgabe operativ durchführt oder maßgeblich daran arbeitet.
 * **C (Consulted / Konsultierend):** Personen, die Fachwissen beisteuern oder deren Meinung vor der Fertigstellung eingeholt wird.
 * **I (Informed / Informiert):** Personen, die über den Fortschritt oder das Ergebnis informiert werden.
-
 
 
 ### Beschreibung der Phasenübergänge (Quality Gates)
