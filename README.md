@@ -3,62 +3,298 @@
 
 # Inhaltsverzeichnis
 
-```text
-1. Vorstellung des Produktes ........................................ 5
-    1.1 Einleitung ................................................... 5
-        1.1.1 Abstract ............................................... 5
-        1.1.2 Produktbeschreibung und Zielgruppe ...................... 6
 
-    1.2 Systemarchitektur ............................................ 7
-        1.2.2 Prozessdiagramm ........................................ 11
-        1.2.3 Beschreibung der persistenten Daten ..................... 15
-        1.2.4 Beschreibung der transienten Daten und Schnittstellen ... 26
+## Inhaltsverzeichnis
 
-    1.3 Mockups ...................................................... 30
-        1.3.1 Anmeldemaske ........................................... 30
-        1.3.2 Hauptseite nach der Anmeldung ........................... 31
-                Bild 12: Hauptseite nach der Anmeldung ................. 31
-        1.3.3 Location anzeigen ....................................... 32
-                Bild 13: Location anzeigen .............................. 32
-        1.3.4 Smart Devices aufgelistet anzeigen ...................... 33
-        1.3.4 Verbrauchsübersicht ..................................... 33
-        1.3.5 Analyse ................................................. 35
-                Bild 16: Analyse ........................................ 35
+<div style="font-family: sans-serif; max-width: 800px; margin: auto; color: black;">
 
-    1.4 Lastenheft ................................................... 36
-        1.4.1 Nicht-Funktionale Anforderungen ......................... 36
-                NFA1: Benutzerfreundlichkeit (Usability) ................ 36
-                NFA2: Performance ....................................... 36
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; margin-top: 10px;">
+    <span>1. Vorstellung des Produktes</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>5</span>
+  </div>
 
-        1.4.2 Funktionale Anforderungen ............................... 37
-        1.4.2.1 Erfassung & Übertragung von Messdaten ................. 37
-        1.4.2.2 Validierung von Messdaten ............................. 39
-        1.4.2.3 Speicherung von Messdaten ............................. 41
-        1.4.2.4 Echtzeitvisualisierung ................................ 43
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>1.1 Einleitung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>5</span>
+  </div>
 
-2. Qualitätssicherung ................................................ 45
-    2.1 Beschreibung der Umgebungen und CI-Pipeline ................... 45
-        2.1.1 CI-Pipeline (Continuous Integration) .................... 45
-    2.2 Testverfahren ................................................. 46
-    2.3 Testvorlagen .................................................. 47
-    2.4 Mögliche Defekte .............................................. 51
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.1.1 Abstract</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>5</span>
+  </div>
 
-3. Projektstruktur und Ressourcenplanung .............................. 52
-    3.1 Vorgehensweise ................................................ 52
-    3.2 Work Breakdown ................................................ 52
-        3.2.1 Stakeholder und Verantwortlichkeiten .................... 52
-        3.2.2 RACI-Matrix ............................................. 54
-                Legende der Rollen ...................................... 54
-                Beschreibung der Phasenübergänge (Quality Gates) ........ 55
-                Übergang 1 – Quality Gate 1 ............................. 55
-                Übergang 2 – Quality Gate 2 ............................. 55
-                Übergang 3 – Quality Gate 3 ............................. 55
-                Übergang 4 – Quality Gate 4 ............................. 55
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.1.2 Produktbeschreibung und Zielgruppe</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>6</span>
+  </div>
 
-    3.3 Sprint-Planung und agiler Methodeneinsatz ..................... 56
-    3.4 Entwicklungs- und Testanforderungen ........................... 57
-    3.5 Marktabschätzung und Finanzierung ............................. 58
-```
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px; margin-top: 10px;">
+    <span>1.2 Systemarchitektur</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>7</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.2.2 Prozessdiagramm</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>11</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.2.3 Beschreibung der persistenten Daten</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>15</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.2.4 Beschreibung der transienten Daten und Schnittstellen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>26</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px; margin-top: 10px;">
+    <span>1.3 Mockups</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>30</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.1 Anmeldemaske</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>30</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.2 Hauptseite nach der Anmeldung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>31</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Bild 12: Hauptseite nach der Anmeldung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>31</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.3 Location anzeigen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>32</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Bild 13: Location anzeigen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>32</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.4 Smart Devices aufgelistet anzeigen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>33</span>
+  </div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.4 Verbrauchsübersicht</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>33</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.3.5 Analyse</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>35</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Bild 16: Analyse</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>35</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px; margin-top: 10px;">
+    <span>1.4 Lastenheft</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>36</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.4.1 Nicht-Funktionale Anforderungen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>36</span>
+  </div>
+  
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>NFA1: Benutzerfreundlichkeit (Usability)</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>36</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>NFA2: Performance</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>36</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>1.4.2 Funktionale Anforderungen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>37</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>1.4.2.1 Erfassung & Übertragung von Messdaten</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>37</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>1.4.2.2 Validierung von Messdaten</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>39</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>1.4.2.3 Speicherung von Messdaten</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>41</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>1.4.2.4 Echtzeitvisualisierung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>43</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; margin-top: 20px;">
+    <span>2. Qualitätssicherung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>45</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>2.1 Beschreibung der Umgebungen und CI-Pipeline</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>45</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>2.1.1 CI-Pipeline (Continuous Integration)</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>45</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>2.2 Testverfahren</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>46</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>2.3 Testvorlagen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>47</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>2.4 Mögliche Defekte</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>51</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; margin-top: 20px;">
+    <span>3. Projektstruktur und Ressourcenplanung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>52</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>3.1 Vorgehensweise</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>52</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>3.2 Work Breakdown</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>52</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>3.2.1 Stakeholder und Verantwortlichkeiten</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>52</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 40px;">
+    <span>3.2.2 RACI-Matrix</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>54</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Legende der Rollen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>54</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Beschreibung der Phasenübergänge (Quality Gates)</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>55</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Übergang 1 – Quality Gate 1</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>55</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Übergang 2 – Quality Gate 2</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>55</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Übergang 3 – Quality Gate 3</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>55</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 60px; font-style: italic; font-size: 0.9em;">
+    <span>Übergang 4 – Quality Gate 4</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>55</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>3.3 Sprint-Planung und agiler Methodeneinsatz</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>56</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>3.4 Entwicklungs- und Testanforderungen</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>57</span>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-left: 20px;">
+    <span>3.5 Marktabschätzung und Finanzierung</span>
+    <span style="flex-grow: 1; border-bottom: 1px dotted black; margin: 0 5px; position: relative; top: -4px;"></span>
+    <span>58</span>
+  </div>
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 1. Einleitung & Produktvorstellung
 ### 1.1 Einleitung
 #### 1.1.1 Abstract
